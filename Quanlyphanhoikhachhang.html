@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý phản hồi khách hàng</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+        body {
+            font-size: 22px;
+            background-image: url('https://images.unsplash.com/photo-1581093588401-22f6362a05b2');
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .page-wrapper {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            margin-top: 40px;
+        }
+
+        h2 {
+            font-size: 35px;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        th {
+            font-size: 23px !important;
+            background: #f9a825 !important;
+            color: black;
+        }
+
+        td {
+            font-size: 22px !important;
+            background: #ffffffd6;
+        }
+
+        .btn {
+            font-size: 20px !important;
+            padding: 10px 16px !important;
+            border-radius: 10px;
+        }
+
+        table tr:hover td {
+            background-color: #fff8e1 !important;
+            cursor: pointer;
+        }
+
+        .navbar {
+            font-size: 22px;
+            padding: 15px;
+            background: rgba(30, 60, 114, 0.9);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            color: #ffeb3b !important;
+        }
+
+        .stars {
+            font-size: 30px;
+            color: #ffca28;
+        }
+
+        .card {
+            border-radius: 16px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">HealthCare Admin</a>
+        <div>
+            <a class="nav-link d-inline-block me-3" href="trangchu.html">Trang chủ</a>
+            <a class="nav-link d-inline-block me-3" href="customer-management.html">Tài khoản</a>
+            <a class="nav-link d-inline-block" href="#">Phản hồi</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container page-wrapper">
+
+    <h2 class="text-center mb-4">QUẢN LÝ PHẢN HỒI KHÁCH HÀNG</h2>
+
+    <div class="card shadow">
+        <div class="card-body p-0">
+
+            <table class="table table-bordered table-striped text-center mb-0">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email khách hàng</th>
+                    <th>Mức hài lòng</th>
+                    <th>Nội dung phản hồi</th>
+                    <th>Ngày gửi</th>
+                    <th>Thao tác</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr>
+                    <td>101</td>
+                    <td>a@gmail.com</td>
+                    <td class="stars">⭐⭐⭐⭐⭐</td>
+                    <td>Dịch vụ rất tốt, giao diện dễ sử dụng!</td>
+                    <td>05/12/2025</td>
+                    <td>
+                        <button class="btn btn-info">Xem</button>
+                        <button class="btn btn-success">Đã xử lý</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>102</td>
+                    <td>b@gmail.com</td>
+                    <td class="stars">⭐⭐⭐</td>
+                    <td>Ứng dụng chạy hơi chậm, cần tối ưu.</td>
+                    <td>06/12/2025</td>
+                    <td>
+                        <button class="btn btn-info">Xem</button>
+                        <button class="btn btn-success">Đã xử lý</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>103</td>
+                    <td>c@gmail.com</td>
+                    <td class="stars">⭐⭐⭐⭐</td>
+                    <td>Chẩn đoán khá chính xác, cần thêm tính năng xem lịch sử.</td>
+                    <td>07/12/2025</td>
+                    <td>
+                        <button class="btn btn-info">Xem</button>
+                        <button class="btn btn-success">Đã xử lý</button>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
