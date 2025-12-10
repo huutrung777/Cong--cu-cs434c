@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập/Đăng Ký - HealthCheck AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="p-3 mb-3 border-bottom shadow-sm fixed-top bg-white">
+    </header>
+    <div style="padding-top: 80px;"></div>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card shadow-lg p-4">
+                    <h2 class="text-center mb-4 fw-bold text-success">Đăng Nhập Tài Khoản</h2>
+
+                    <ul class="nav nav-tabs mb-4" id="authTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login"
+                                type="button" role="tab" aria-controls="login" aria-selected="true">Đăng Nhập</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register"
+                                type="button" role="tab" aria-controls="register" aria-selected="false">Đăng Ký</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="authTabContent">
+
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="loginEmail"
+                                        placeholder="name@example.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="loginPassword" required>
+                                </div>
+                                <div class="mb-4 d-flex justify-content-between align-items-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                        <label class="form-check-label small" for="rememberMe">Ghi nhớ tôi</label>
+                                    </div>
+                                    <a href="#" class="small text-decoration-none">Quên mật khẩu?</a>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-success btn-lg">ĐĂNG NHẬP</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="registerName" class="form-label">Họ và Tên</label>
+                                    <input type="text" class="form-control" id="registerName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="registerEmail"
+                                        placeholder="name@example.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="registerPassword" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="confirmPassword" class="form-label">Xác nhận Mật khẩu</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">TẠO TÀI KHOẢN</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5">
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.querySelector('#login form');
+            const registerForm = document.querySelector('#register form');
+
+            // --- HÀM HỖ TRỢ: LƯU TRỮ VÀ LẤY DỮ LIỆU NGƯỜI DÙNG ---
+
+            // Hàm lấy danh sách người dùng từ Local Storage
+            function getUsers() {
+                const usersJson = localStorage.getItem('health_users');
+                return usersJson ? JSON.parse(usersJson) : [];
+            }
+
+            // Hàm lưu danh sách người dùng vào Local Storage
+            function saveUsers(users) {
+                localStorage.setItem('health_users', JSON.stringify(users));
+            }
+
+            // --- XỬ LÝ ĐĂNG KÝ ---
+            registerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const name = document.getElementById('registerName').value.trim();
+                const email = document.getElementById('registerEmail').value.trim();
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                if (password !== confirmPassword) {
+                    alert('Lỗi: Mật khẩu xác nhận không khớp.');
+                    return;
+                }
+
+                let users = getUsers();
+
+                // Kiểm tra xem email đã tồn tại chưa
+                if (users.find(user => user.email === email)) {
+                    alert('Lỗi: Email này đã được đăng ký. Vui lòng đăng nhập.');
+                    return;
+                }
+
+                // Tạo đối tượng người dùng mới
+                const newUser = {
+                    name: name,
+                    email: email,
+                    password: password, // Trong thực tế, phải mã hóa mật khẩu!
+                    isLoggedIn: false
+                };
+
+                users.push(newUser);
+                saveUsers(users);
+
+                alert('Đăng ký thành công! Bạn có thể đăng nhập ngay bây giờ.');
+                registerForm.reset();
+
+                // Chuyển sang tab Đăng nhập sau khi đăng ký thành công (Dùng Bootstrap JS API)
+                const loginTab = document.getElementById('login-tab');
+                new bootstrap.Tab(loginTab).show();
+            });
+
+
+            // --- XỬ LÝ ĐĂNG NHẬP ---
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value;
+                const users = getUsers();
+
+                const userFound = users.find(user => user.email === email && user.password === password);
+
+                if (userFound) {
+                    // Thiết lập trạng thái đăng nhập trong Local Storage
+                    // Lưu email người dùng đã đăng nhập
+                    localStorage.setItem('current_user_email', email);
+
+                    alert('Đăng nhập thành công!');
+
+                    // Chuyển hướng đến Dashboard
+                    window.location.href = 'dashboard.html';
+
+                } else {
+                    alert('Lỗi: Email hoặc mật khẩu không đúng. Vui lòng thử lại.');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>
