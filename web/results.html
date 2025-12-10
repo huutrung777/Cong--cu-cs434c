@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Chẩn Đoán AI - HealthCheck AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS cho thẻ Tóm Tắt Khả Năng */
+        .result-card {
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .result-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .confidence-bar {
+            height: 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="p-3 mb-3 border-bottom shadow-sm fixed-top bg-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="home.html" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                    <span class="fs-4 fw-bold text-success">💖 HealthCheck AI</span>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-4">
+                    <li><a href="home.html" class="nav-link px-3 link-dark">Trang chủ</a></li>
+                    <li><a href="diagnosis.html" class="nav-link px-3 link-dark">Chẩn đoán</a></li>
+                    <li><a href="#" class="nav-link px-3 link-success fw-bold">Kết quả</a></li>
+                </ul>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-success me-2">Đăng nhập</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="padding-top: 80px;"></div>
+
+    <section class="container my-4">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-success">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="diagnosis.html" class="text-success">Chẩn đoán</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Kết quả</li>
+            </ol>
+        </nav>
+        <div class="p-4 p-md-5 mb-4 rounded text-white bg-primary">
+            <div class="col-md-10 px-0">
+                <h1 class="display-5 fw-bold text-white">🎉 Báo Cáo Chẩn Đoán Sơ Bộ</h1>
+                <p class="lead my-3">Phân tích dựa trên các triệu chứng bạn cung cấp. Vui lòng tham khảo ý kiến bác sĩ
+                    để có chẩn đoán chính thức.</p>
+                <p class="small">Ngày phân tích: 06/12/2025 | ID Phiên: #HC20251206A</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mb-5">
+        <div class="row">
+
+            <div class="col-lg-8">
+                <h3 class="mb-4 text-dark border-bottom pb-2">Top 3 Khả Năng Bệnh Lý</h3>
+
+                <div class="card result-card border-success border-2 mb-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="card-title text-success fw-bold">1. Cảm Lạnh Thông Thường</h4>
+                            <span class="badge bg-success fs-6">Ưu tiên số 1</span>
+                        </div>
+                        <p class="card-text text-muted">Mức độ trùng khớp triệu chứng (Độ tin cậy AI): 85%</p>
+                        <div class="progress mb-2" role="progressbar" aria-label="Mức độ tin cậy 85%" aria-valuenow="85"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-success confidence-bar" style="width: 85%"></div>
+                        </div>
+                        <p class="small mt-3">**Triệu chứng khớp:** Sổ mũi, đau họng, hắt hơi, sốt nhẹ.</p>
+                        <a data-bs-toggle="collapse" href="#details1" role="button" aria-expanded="false"
+                            aria-controls="details1" class="text-primary text-decoration-none fw-bold">
+                            Xem chi tiết về Cảm Lạnh &raquo;
+                        </a>
+                        <div class="collapse mt-3" id="details1">
+                            <div class="card card-body small bg-light">
+                                **Mô tả:** Là một bệnh nhiễm trùng đường hô hấp trên do virus. Thường tự khỏi trong 7-10
+                                ngày.
+                                <br> **Lời khuyên:** Nghỉ ngơi, uống đủ nước, dùng thuốc giảm đau không kê đơn.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card result-card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="card-title text-dark fw-bold">2. Viêm Xoang Cấp</h4>
+                            <span class="badge bg-secondary fs-6">Độ tin cậy: 45%</span>
+                        </div>
+                        <p class="card-text text-muted">Mức độ trùng khớp triệu chứng: 45%</p>
+                        <div class="progress mb-2" role="progressbar" aria-label="Mức độ tin cậy 45%" aria-valuenow="45"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-secondary confidence-bar" style="width: 45%"></div>
+                        </div>
+                        <p class="small mt-3">**Triệu chứng khớp:** Đau đầu (vùng trán/gò má), nghẹt mũi nặng.</p>
+                        <a data-bs-toggle="collapse" href="#details2" role="button" aria-expanded="false"
+                            aria-controls="details2" class="text-primary text-decoration-none fw-bold">
+                            Xem chi tiết về Viêm Xoang &raquo;
+                        </a>
+                        <div class="collapse mt-3" id="details2">
+                            <div class="card card-body small bg-light">
+                                **Mô tả:** Viêm nhiễm các xoang cạnh mũi. Cần theo dõi dịch nhầy và mức độ đau.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card result-card mb-3 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="card-title text-dark fw-bold">3. Dị Ứng Thời Tiết</h4>
+                            <span class="badge bg-secondary fs-6">Độ tin cậy: 15%</span>
+                        </div>
+                        <p class="card-text text-muted">Mức độ trùng khớp triệu chứng: 15%</p>
+                        <div class="progress mb-2" role="progressbar" aria-label="Mức độ tin cậy 15%" aria-valuenow="15"
+                            aria-valuemin="0" aria-valuemax="100">
+                            <div class="progress-bar bg-secondary confidence-bar" style="width: 15%"></div>
+                        </div>
+                        <p class="small mt-3">**Triệu chứng khớp:** Hắt hơi liên tục, chảy nước mắt (nếu có).</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card bg-info bg-opacity-10 border-info border-2 p-4 mb-4">
+                    <h4 class="text-info mb-3">🔔 Bước Tiếp Theo Được Đề Xuất</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <p class="fw-bold mb-1">1. Theo dõi Triệu chứng:</p>
+                            <p class="small text-muted">Nếu sốt kéo dài trên 3 ngày hoặc triệu chứng trở nên nghiêm
+                                trọng, **hãy đi khám ngay.**</p>
+                        </li>
+                        <li class="mb-3">
+                            <p class="fw-bold mb-1">2. Đặt Lịch Hẹn Chuyên Gia:</p>
+                            <p class="small text-muted">Tham khảo ý kiến bác sĩ đa khoa hoặc chuyên khoa Tai Mũi Họng để
+                                có chẩn đoán chính thức.</p>
+                            <button class="btn btn-info btn-sm mt-1">Tìm Bác Sĩ Gần Nhất</button>
+                        </li>
+                        <li class="mb-3">
+                            <p class="fw-bold mb-1">3. Chăm Sóc Tại Nhà:</p>
+                            <p class="small text-muted">Nghỉ ngơi đầy đủ, tránh nơi đông người, súc miệng nước muối ấm.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card bg-danger bg-opacity-10 border-danger border-2 p-4">
+                    <h4 class="text-danger mb-3">🛑 TUYÊN BỐ MIỄN TRỪ TRÁCH NHIỆM</h4>
+                    <p class="small fw-bold">Kết quả này là do máy tính tạo ra và KHÔNG phải là chẩn đoán y tế chính
+                        thức. Hệ thống không thể đánh giá toàn bộ tình trạng sức khỏe của bạn.</p>
+                    <p class="small mt-2">Việc sử dụng dịch vụ này không thiết lập mối quan hệ bác sĩ-bệnh nhân.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <p>&copy; 2025 HealthCheck AI. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr123.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

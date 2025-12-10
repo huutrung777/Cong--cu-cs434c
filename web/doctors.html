@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Kiếm Bác Sĩ - HealthCheck AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS tùy chỉnh cho card bác sĩ */
+        .doctor-card {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .doctor-card:hover {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="p-3 mb-3 border-bottom shadow-sm fixed-top bg-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="home.html" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                    <span class="fs-4 fw-bold text-success">💖 HealthCheck AI</span>
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-4">
+                    <li><a href="home.html" class="nav-link px-3 link-dark">Trang chủ</a></li>
+                    <li><a href="diagnosis.html" class="nav-link px-3 link-dark">Chẩn đoán</a></li>
+                    <li><a href="#" class="nav-link px-3 link-success fw-bold">Tìm bác sĩ</a></li>
+                </ul>
+                <div class="text-end">
+                    <a href="auth.html" class="btn btn-outline-success me-2">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div style="padding-top: 80px;"></div>
+
+    <section class="container my-5">
+        <h1 class="display-5 fw-bold text-dark mb-4 border-bottom pb-2">🔍 Tìm Kiếm Bác Sĩ Chuyên Khoa</h1>
+        <p class="lead text-muted mb-4">Kết nối với các chuyên gia y tế hàng đầu dựa trên kết quả chẩn đoán sơ bộ của
+            bạn.</p>
+
+        <div class="card p-4 shadow-sm mb-5 bg-light">
+            <h4 class="mb-3 text-success">Bộ Lọc Nhanh</h4>
+            <form class="row g-3">
+
+                <div class="col-md-4">
+                    <label for="specialty" class="form-label fw-bold">Chuyên Khoa</label>
+                    <select class="form-select" id="specialty">
+                        <option selected>Chọn Chuyên khoa...</option>
+                        <option>Nội khoa</option>
+                        <option>Tai Mũi Họng</option>
+                        <option>Da liễu</option>
+                        <option>Nhi khoa</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <label for="location" class="form-label fw-bold">Địa Điểm</label>
+                    <input type="text" class="form-control" id="location" placeholder="Ví dụ: Quận 1, Hà Nội">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="rating" class="form-label fw-bold">Đánh Giá (Tối thiểu)</label>
+                    <select class="form-select" id="rating">
+                        <option selected>4.0 sao trở lên</option>
+                        <option>4.5 sao trở lên</option>
+                        <option>Tất cả</option>
+                    </select>
+                </div>
+
+                <div class="col-md-1 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Tìm</button>
+                </div>
+            </form>
+        </div>
+
+        <h3 class="mb-4">Kết Quả Tìm Kiếm (3 Bác Sĩ)</h3>
+
+        <div class="row row-cols-1 g-4">
+
+            <div class="col">
+                <div class="card doctor-card p-3">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-auto">
+                            <img src="https://via.placeholder.com/100" class="rounded-circle me-3 profile-img"
+                                alt="Ảnh Bác Sĩ 1">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="fw-bold mb-1 text-primary">BS.CKII Trần Văn An</h5>
+                            <p class="mb-1">Chuyên khoa: <span class="fw-bold text-success">Tai Mũi Họng</span></p>
+                            <p class="text-muted small mb-1">Kinh nghiệm: 15 năm | Bệnh viện: FV Hospital</p>
+                            <p class="text-warning mb-0">★★★★★ <span class="text-muted small">(4.8 / 5.0 - 210 đánh
+                                    giá)</span></p>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Đặt lịch ngay
+                            </button>
+                            <button class="btn btn-outline-secondary">Hồ sơ chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card doctor-card p-3">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-auto">
+                            <img src="https://via.placeholder.com/100" class="rounded-circle me-3 profile-img"
+                                alt="Ảnh Bác Sĩ 2">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="fw-bold mb-1 text-primary">ThS.BS Lê Thị Bình</h5>
+                            <p class="mb-1">Chuyên khoa: <span class="fw-bold text-success">Nội Khoa Tổng Quát</span>
+                            </p>
+                            <p class="text-muted small mb-1">Kinh nghiệm: 10 năm | Phòng khám: City Clinic</p>
+                            <p class="text-warning mb-0">★★★★☆ <span class="text-muted small">(4.3 / 5.0 - 95 đánh
+                                    giá)</span></p>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Đặt lịch ngay
+                            </button>
+                            <button class="btn btn-outline-secondary">Hồ sơ chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card doctor-card p-3">
+                    <div class="row g-0 align-items-center">
+                        <div class="col-auto">
+                            <img src="https://via.placeholder.com/100" class="rounded-circle me-3 profile-img"
+                                alt="Ảnh Bác Sĩ 3">
+                        </div>
+                        <div class="col-md-8">
+                            <h5 class="fw-bold mb-1 text-primary">BS. Nguyễn Hữu Cường</h5>
+                            <p class="mb-1">Chuyên khoa: <span class="fw-bold text-success">Nhi Khoa</span></p>
+                            <p class="text-muted small mb-1">Kinh nghiệm: 7 năm | Bệnh viện: Nhi Đồng 2</p>
+                            <p class="text-warning mb-0">★★★★★ <span class="text-muted small">(4.9 / 5.0 - 300 đánh
+                                    giá)</span></p>
+                        </div>
+                        <div class="col-md-3 text-end">
+                            <button class="btn btn-success me-2" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Đặt lịch ngay
+                            </button>
+                            <button class="btn btn-outline-secondary">Hồ sơ chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="bookingModalLabel">Đặt Lịch Hẹn Với BS. Trần Văn An</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="appointmentDate" class="form-label">Chọn Ngày Khám</label>
+                            <input type="date" class="form-control" id="appointmentDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentTime" class="form-label">Chọn Giờ Khám</label>
+                            <select class="form-select" id="appointmentTime" required>
+                                <option selected disabled>Chọn khung giờ...</option>
+                                <option>08:00 - 09:00</option>
+                                <option>09:00 - 10:00</option>
+                                <option>14:00 - 15:00</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookingNote" class="form-label">Ghi Chú Triệu Chứng Tóm Tắt</label>
+                            <textarea class="form-control" id="bookingNote"
+                                rows="2">Tôi đang có triệu chứng đau họng và sổ mũi theo kết quả AI.</textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-success">Xác Nhận Đặt Lịch</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <p>&copy; 2025 HealthCheck AI. Mọi quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
