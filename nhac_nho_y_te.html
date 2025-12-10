@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhắc Nhở Y Tế</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #e7efff;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        /* HEADER */
+        .header {
+            background: #2e63ff;
+            padding: 18px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 20px;
+        }
+
+        .back-btn {
+            background: white;
+            color: #2e63ff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* MAIN CARD */
+        .main-card {
+            background: white;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+        }
+
+        /* Avatar circle */
+        .avatar {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .circle {
+            width: 90px;
+            height: 90px;
+            background: #2e63ff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin: 5px 0;
+            font-size: 22px;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-top: -5px;
+            font-size: 14px;
+            color: gray;
+        }
+
+        .section-title {
+            font-size: 17px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* ITEMS */
+        .item {
+            background: #f7f8ff;
+            padding: 14px;
+            border-radius: 12px;
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+
+        .pink { background: #ffe0e8; }
+        .blue { background: #d8f1ff; }
+        .yellow { background: #fff3cd; }
+        .purple { background: #ede2ff; }
+
+        .item-title {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .item-text {
+            margin: 0;
+            font-size: 14px;
+            color: gray;
+        }
+
+        /* BUTTON */
+        .edit-btn {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            background: #2e63ff;
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <button class="back-btn">←</button>
+        <h2>Thông Báo & Nhắc Nhở</h2>
+    </div>
+
+    <div class="main-card">
+
+        <div class="avatar">
+            <div class="circle">⏰</div>
+        </div>
+
+        <h3 class="title">Nhắc Nhở Y Tế</h3>
+        <p class="subtitle">Theo dõi các thông báo sức khỏe của bạn</p>
+
+        <h4 class="section-title">Danh sách nhắc nhở</h4>
+
+        <div class="item">
+            <div class="icon pink">💊</div>
+            <div>
+                <p class="item-title">Uống thuốc huyết áp</p>
+                <p class="item-text">Nhắc lúc: 08:00 AM</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="icon blue">🩺</div>
+            <div>
+                <p class="item-title">Tái khám định kỳ</p>
+                <p class="item-text">Ngày: 12/12/2025</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="icon yellow">💉</div>
+            <div>
+                <p class="item-title">Tiêm ngừa cúm</p>
+                <p class="item-text">Ngày: 05/12/2025</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="icon purple">🫀</div>
+            <div>
+                <p class="item-title">Đo huyết áp buổi sáng</p>
+                <p class="item-text">Nhắc lúc: 07:30 AM</p>
+            </div>
+        </div>
+
+        <button class="edit-btn">＋ Thêm Nhắc Nhở</button>
+    </div>
+
+</body>
+</html>

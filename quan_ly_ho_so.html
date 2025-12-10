@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Quản Lý Hồ Sơ - Minimal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2f7df6;
+  --bg:#f4f7fb;
+  --card:#ffffff;
+  --muted:#9aa6c3;
+  --soft:#eef4ff;
+  --radius:14px;
+  --gap:14px;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial;}
+body{margin:0;background:var(--bg);-webkit-font-smoothing:antialiased}
+.container{max-width:920px;margin:22px auto;padding:22px}
+.header{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,var(--blue),#3f8bfd);color:#fff;padding:16px;border-radius:12px}
+.header .back{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:600}
+.header h1{font-size:18px;margin:0;font-weight:600}
+
+/* main card */
+.card{background:var(--card);border-radius:18px;padding:28px;margin-top:16px;box-shadow:0 8px 22px rgba(31,60,120,0.06)}
+.profile{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:6px}
+.avatar{width:84px;height:84px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:24px;box-shadow:0 6px 16px rgba(47,125,246,0.18)}
+.name{font-size:18px;font-weight:700}
+.sub{color:var(--muted);font-size:13px}
+
+/* sections */
+.section{margin-top:18px}
+.section h3{margin:0 0 12px 6px;font-size:14px;color:#223}
+.rows{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #f0f4fb}
+.icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--blue);background:var(--soft);flex:0 0 44px}
+.row .meta{flex:1}
+.row .label{font-size:13px;color:var(--muted);margin-bottom:4px}
+.row .value{font-size:15px;font-weight:600;color:#253049}
+
+/* bottom button */
+.actions{margin-top:18px;display:flex;justify-content:center}
+.btn{background:var(--blue);color:#fff;border:none;padding:12px 18px;border-radius:10px;font-weight:600;cursor:pointer;min-width:260px;box-shadow:0 6px 18px rgba(47,125,246,0.18)}
+/* small screens */
+@media (max-width:560px){
+  .container{padding:12px}
+  .card{padding:18px}
+  .header h1{font-size:15px}
+  .avatar{width:68px;height:68px;font-size:20px}
+  .btn{min-width:100%}
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header" role="banner">
+      <div class="back">←</div>
+      <h1>Quản Lý Hồ Sơ</h1>
+    </div>
+
+    <main class="card" role="main" aria-label="Hồ sơ bệnh nhân">
+      <div class="profile">
+        <div class="avatar">NH</div>
+        <div class="name">Nguyễn Văn A</div>
+        <div class="sub">Bệnh nhân thường xuyên</div>
+      </div>
+
+      <section class="section">
+        <h3>Thông Tin Cá Nhân</h3>
+        <div class="rows">
+          <div class="row">
+            <div class="icon">✉</div>
+            <div class="meta">
+              <div class="label">Email</div>
+              <div class="value">nguyenvana@email.com</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="icon">📱</div>
+            <div class="meta">
+              <div class="label">Số điện thoại</div>
+              <div class="value">0987654321</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="icon">🎂</div>
+            <div class="meta">
+              <div class="label">Ngày sinh</div>
+              <div class="value">01/01/1990</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="icon">⚧</div>
+            <div class="meta">
+              <div class="label">Giới tính</div>
+              <div class="value">Nam</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="icon">📍</div>
+            <div class="meta">
+              <div class="label">Địa chỉ</div>
+              <div class="value">123 Đường ABC, Quận 1, Hà Nội</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Thông Tin Sức Khỏe</h3>
+        <div class="rows">
+          <div class="row">
+            <div class="icon">🩸</div>
+            <div class="meta">
+              <div class="label">Nhóm máu</div>
+              <div class="value">O+</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="icon">📏</div>
+            <div class="meta">
+              <div class="label">Chiều cao / Cân nặng</div>
+              <div class="value">170 cm / 65 kg</div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="icon">⚠</div>
+            <div class="meta">
+              <div class="label">Dị ứng</div>
+              <div class="value">Không có</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button class="btn">✏️ Chỉnh Sửa Thông Tin</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
